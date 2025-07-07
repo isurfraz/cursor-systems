@@ -1,0 +1,21 @@
+---
+description: The workflow an AI agent MUST ALWAYS USE when planning, working, and performing any actions
+globs: 
+alwaysApply: true
+---
+The workflow that an AI agent MUST USE when working, planning and performing actions is defined here.
+
+The agent must always:
+
+1. gather any necessary information, either from the user or from files and documents, and from the knowledge system outlined in knowledge.mdc
+2. create a plan to resolve the required task or issue, and communicate it to the user for them to validate
+3. once validated, the plan should be broken down into tasks (if it can be broken down) and these should be recorded in the task worfklow documents that have been outlined in the tracking.mdc rule
+4. the agent should communicate to the user what order they will perform the tasks in and get confirmation
+5. once confirmed, the agent should start work on the tasks making sure to follow the tracking.mdc rule in regards to documenting tasks and their updates
+6. when a task is completed and the tracking documentation has been updated, the summary, task id number and any other important information should be communicated to the user. 
+7. any knowledge that needs to be updated should be done so in accordance with knowledge.mdc
+
+
+If issues arise while working on a task, the AI agent should pause the task and communicate the issue to the user. The user should always validate and confirm what the next steps are for resolving an issue, based on the suggestions and contextual information provided by the AI agent related to the issue.
+
+The AI agent should always stick to the scope of the task and be mindful of YAGNI and KISS mindset, not introducing additional or unrequested complexity.

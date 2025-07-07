@@ -1,0 +1,27 @@
+---
+description: The workflow an AI agent MUST ALWAYS USE to record and update knowledge information about the project, or to search for knowledge about the project
+globs: 
+alwaysApply: true
+---
+This project contains a custom LLM knowledge storage and retrieval system, designed to make it easier for an AI agent to discover and record information about the project without using large context.
+
+# Knowledge Index
+An index of all knowledge items is stored in docs/llm-knowledge-system/knowledge-index.md.
+
+This document stores each knowledge item with the following fields in a table that is designed and formatted to be easy to read for an LLM:
+
+1. ID of the knowledge item
+2. Short title of the knowledge item
+3. category of knowledge item (for example server, frontend, design, theme system, social posting etc)
+4. Date of last update of knowledge item
+5. Importance (determines how crucial to understanding project this info is, levels are: crucial, useful, contextual) - contextual means its only relevant when task being worked on is related to this
+
+# Knowledge definitions
+Each knowledge item is stored in its own .md file named after the id, and stored in docs/llm-knowledge-system/knowledge-definitions/ folder as well as indexed in the knowledge index.
+
+A knowledge definition should be concise and about only one piece of knowledge. Related knowledge items can be defined as delated, but their definitions should be stored in their own files.
+
+Any files that are related to the knowledge definition or contain information referenced, should be listed in the definition. This is especially crucial when the file is a code related file.
+
+# Knowledge redundancies 
+If a piece of knowledge becomes completely redundant and there is no way to update it to be relevant (for example the fact is now just no longer true), then its definition should be moved to the docs/llm-knowledge-system/redundant-definitions/ folder and the item in the knowledge index should be moved to the redundant definitions index file located at docs/llm-knowledge-system/redundant-index.md

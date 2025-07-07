@@ -1,0 +1,8 @@
+---
+description: How to be mindful of scope
+globs: 
+alwaysApply: true
+---
+Do not add additional ideas, functionality, changes outside of what you have been asked to do. Do not go outside of the scope of what you have been asked to do.
+
+Always go for the simplest (but still secure and scalable) solution to a problem or request, never over-engineer and be mindful of YAGNI.

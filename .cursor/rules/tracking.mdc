@@ -1,0 +1,57 @@
+---
+description: how the agent should track work to be done or completed work
+globs: 
+alwaysApply: true
+---
+In order to improve efficiency and get around issues caused by LLM context, the AI agent should always track work using our work tracking files which are defined below.
+
+The files already exists. The documents are to be used to track work items, issues, progress, important information relevant to tasks etc
+
+The document is into multiple sections:
+
+File: docs/task-system/backlog.md
+Backlog Tasks - this defines the tasks that are outstanding
+
+File: docs/task-system/in-progress.md
+In progress Tasks - this defines the tasks that have been started by an AI agent but not completed
+
+File: docs/task-system/completed.md
+Complete Tasks - this defines all work items that have been completed 
+
+
+File: docs/task-system/task-index.md
+Task Index - this is an index of all tasks and their respective ID numbers, it is a list that says each tasks ID, title and the current step (and document) they are in as well as last date/time they were updated/worked on. This allows an AI agent to quickly see where a task is, and can be useful when referencing tasks from other documents
+
+# Knowledge
+Before defining a task, the knowledge library should be searched to find any relevant information. The workflow for this is outlined in the knowledge.mdc rule
+
+# Defining Tasks
+When a task is defined, a document with .md extension and named after the Task ID should be placed in docs/task-system/task-definitions/ folder. It must be created with a full description that references any related work items, lists out the files that should be affected, success and testing criteria, and a date and time that the work item was created. A task should be created in a way that the solution is the most simple solution that is possible, whilst maintaining high security and production quality code. We should never overcomplicate anything and be mindful of YAGNI and KISS principles.
+
+All info necessary to understand the task should live in the task definition document.
+
+
+# Creating Tasks
+Whenever you create a backlog item, you should add a simple reference to the task definition. The only information that should be in the backlog is the task id, the task title, the task definition files name and location, and the date/time this task was created as well as any related task depedency information.
+
+# Performing Tasks
+Whenever you start or continue a task, it should be updated in the document to relfect this with. Whenever you finish a step or piece of work on a task, the task in the in progess section should be updated to reflect the work done and any important information. The task while in progress should have a clear list of steps and the status of each which you update as you go, so that it is easy for another AI agent to track the status and where to continue from. Any contextual information should be documented within the task definition itself already, if new contextual information is discovered while working then the definition should be updated. The scope of a task should not be expanded once started and if it is required to do so, then it should be confirmed by the user first before you have approval to do so.
+
+A task should be removed from the backlog when it is placed in the in-progress document, a task should only live in 1 document at a time (excluding the task index). 
+
+# Completing Tasks
+When you complete a task it should be moved from the in progress document to the completed document. The task definition document fro the task should be updated to include any insights relevant to future work / dependent tasks if necessary.
+
+A task should be removed from the backlog when it is placed in the completed document, a task should only live in 1 document at a time (excluding the task index). 
+
+If new knowledge is discovered, or existing knowledge needs to be updated, this should be done in accordance with the knowledge.mdc rule.
+
+# Indexing and storing tasks
+All tasks should have an ID number, a title and a date/time of the last update. This information should be stored in the task index document, as well as in the respective document they are currently in. This allows easy lookup of tasks when an AI agent needs to reference a task from another task or quickly check the status of tasks that have moved between different documents. The index should be updated whenever a task is created/updated
+
+THE TASK INDEX SHOULD STORE ALL TASKS, INCLUDING COMPLETED TASKS. IT IS THE SOURCE OF TRUTH OF ALL WORK THAT IS PLANNED, IN PROGRESS, OR COMPLETED. 
+
+The task index should be written in a way that makes it easy for an LLM to search and find items within it quickly.
+
+# Knowledge recording and retrieval
+All task definition files should list any knowledge definition files and their ID, that are relevant to the task. The workflow for these are defined in the knowledge.mdc rule
